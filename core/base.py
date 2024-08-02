@@ -91,6 +91,6 @@ if __name__ == '__main__':
         return total
 
     result = code_battle_core.evaluate(sample_function, 1000000)
-    for k,v in result.items():
+    for k, v in result.items():
         print(k, ":", v)
     print("\nNumber of lines in sample_function:", CodeBattleCore.count_lines_of_function(sample_function))
