@@ -85,17 +85,12 @@ if __name__ == '__main__':
     code_battle_core = CodeBattleCore()
 
     def sample_function(n):
-        """Ví dụ hàm mẫu
-
-        :param n (int): Số nguyên đầu vào
-
-        :return (int): Trả về tổng của các số từ 0 đến n-1
-        """
         total = 0
         for i in range(n):
             total += i
         return total
 
     result = code_battle_core.evaluate(sample_function, 1000000)
-    print(result)
-    print("Number of lines in sample_function:", CodeBattleCore.count_lines_of_function(sample_function))
+    for k,v in result.items():
+        print(k, ":", v)
+    print("\nNumber of lines in sample_function:", CodeBattleCore.count_lines_of_function(sample_function))
