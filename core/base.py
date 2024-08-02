@@ -13,6 +13,7 @@ class CodeBattleCore:
 
         :return (tuple): Trả về kết quả, lỗi (nếu có), thời gian thực thi và bộ nhớ sử dụng
         """
+
         start_time = time()
         start_memory = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
 
@@ -40,6 +41,7 @@ class CodeBattleCore:
 
         :return (dict): Trả về kết quả, lỗi (nếu có), thời gian thực thi, bộ nhớ sử dụng và điểm
         """
+
         result, stderr, execution_time, memory_used = self.run_function(func, *args, **kwargs)
         line_nummber = self.count_lines_of_function(func)
         score = self.custom_scoring_function(result, stderr, execution_time, memory_used, line_nummber)
@@ -74,6 +76,7 @@ class CodeBattleCore:
 
         :return (int): Trả về điểm
         """
+
         if (stderr):
             return 0  # Nếu có lỗi, điểm là 0
         score = 100 - execution_time - memory_used / 1024 + line_nummber  # Ví dụ: điểm theo thời gian, số dòng và bộ nhớ sử dụng
